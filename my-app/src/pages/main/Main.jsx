@@ -1,29 +1,35 @@
 import { useState } from "react";
-import { AddUserForm } from "../../containers/AddUserForm/AddUserForm";
-import { Footer } from "../../containers/Footer/Footer";
-import { Notification } from "../../components/Notification/Notification";
-
+import { ListForm } from "../../containers/ListForm/ListForm";
+import { InputForm } from "../../containers/InputForm/InputForm";
+import styles from "./Main.module.scss";
 export const Main = () => {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
 
-  const submitUserHandler = (event) => {
-    event.preventDefault();
-    console.log("USER:", name, age);
-  };
+const [data, ValueFunction]= useState([])
+
+
+ 
 
   return (
     <>
       <div>
-        <h1>Main Page</h1>
-        <AddUserForm
-          setUserName={setName}
-          setUserAge={setAge}
-          submitUser={submitUserHandler}
-        />
-        <Notification/>
+       
+<InputForm 
+ ValueFunction={ValueFunction}
+ data={data}
+ />
+<div className={styles.Wrapper}>
+ {
+
+data.map(val=>{
+ return <ListForm key={val.id} dataVal={val} ValueFunction={ValueFunction}  data={data} />
+ }
+  ) 
+} 
+
+
+</div >
       </div>
-      <Footer />
+
     </>
   );
 };

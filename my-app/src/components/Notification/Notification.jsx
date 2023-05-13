@@ -11,7 +11,7 @@ export const Notification=(props)=>{
       
       
     return setColor(event.target.textContent) 
-      //  document.querySelector('#block').classList.add(color);
+       document.querySelector('#block').classList.add(color);
     };
 
    

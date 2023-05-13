@@ -2,7 +2,7 @@
 
 export const Button = (props) => {
     return (
-      <button type={props.type} onClick={props.qwer} className={props.style}>
+      <button id={props.id} type={props.type} onClick={props.qwer} className={props.style}>
         {props.children} 
       </button>
     );
